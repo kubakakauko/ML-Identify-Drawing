@@ -17,6 +17,6 @@ const featureNames = ["Path Counts", "Point Counts"];
 
 fs.writeFileSync(
   constants.FEATURES,
-  JSON.stringify({ featurenames: featureNames, samples: samples }, null, 2),
-  "utf8",
+  JSON.stringify({ featurenames: featureNames, samples: samples }),
+   "utf8",
 );
