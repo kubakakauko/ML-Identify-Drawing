@@ -52,6 +52,7 @@ fileNames.forEach(fn=>{
       id++;
    }
 });
+console.log("\n");
 
 fs.writeFileSync(constants.SAMPLES,
    JSON.stringify(samples)
