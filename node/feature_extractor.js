@@ -10,7 +10,7 @@ for (const sample of samples) {
     fs.readFileSync(constants.JSON_DIR + "/" + sample.id + ".json"),
   );
 
-  sample.points = [featrues.getPathCount(paths), features.getPointCount(paths)];
+  sample.points = [features.getPathCount(paths), features.getPointCount(paths)];
 }
 
 const featureNames = ["Path Counts", "Point Counts"];
