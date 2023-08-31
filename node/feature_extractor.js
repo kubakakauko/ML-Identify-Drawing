@@ -27,11 +27,11 @@ fs.writeFileSync(
   }),
 );
 
-fs.writefileSync(
+fs.writeFileSync(
   constants.FEATURES_JS,
   `const features=
-${JSON.stringify({ featureNames, samples })}
-;`,
+   ${JSON.stringify({ featurenames:featureNames, samples: samples })}
+   ;`
 );
 
 console.log("Feature Extraction Done");
