@@ -5,6 +5,8 @@ const fs = require("fs");
 
 const samples = JSON.parse(fs.readFileSync(constants.SAMPLES, "utf8"));
 
+console.log("Extracting Features...");
+
 for (const sample of samples) {
   const paths = JSON.parse(
     fs.readFileSync(constants.JSON_DIR + "/" + sample.id + ".json"),
@@ -17,6 +19,19 @@ const featureNames = ["Path Counts", "Point Counts"];
 
 fs.writeFileSync(
   constants.FEATURES,
-  JSON.stringify({ featurenames: featureNames, samples: samples }),
-   "utf8",
+  JSON.stringify({
+    featurenames: featureNames,
+    samples: samples.map((s) => {
+      return { point: s.point, label: s.label };
+    }),
+  }),
 );
+
+fs.writefileSync(
+  constants.FEATURES_JS,
+  `const features=
+${JSON.stringify({ featureNames, samples })}
+;`,
+);
+
+console.log("Feature Extraction Done");
